@@ -1,5 +1,5 @@
-import { Balance } from './Balance'
 import { Card, DateWrapper, GreetingWrapper, Heading } from './styles'
+import Balance from './Balance'
 
 const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',

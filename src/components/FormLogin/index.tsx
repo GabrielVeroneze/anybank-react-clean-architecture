@@ -1,9 +1,13 @@
 import { useState } from 'react'
-import { Button } from '@/components/Button'
-import { Fieldset } from '@/components/Fieldset'
-import { Figure, Form, FormActions, Heading, Image } from '@/components/Form'
-import { FormLabel } from '@/components/FormLabel'
-import { TextField } from '@/components/TextField'
+import Button from '@/components/Button'
+import Fieldset from '@/components/Fieldset'
+import Form from '@/components/Form'
+import FormActions from '@/components/Form/FormActions'
+import Figure from '@/components/Form/Figure'
+import Heading from '@/components/Form/Heading'
+import Image from '@/components/Form/Image'
+import FormLabel from '@/components/FormLabel'
+import TextField from '@/components/TextField'
 
 interface FormLoginProps {
     onLogin: () => void

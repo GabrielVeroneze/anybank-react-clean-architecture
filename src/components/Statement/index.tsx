@@ -1,5 +1,5 @@
-import { type ITransaction, Transaction } from '@/components/Transaction'
 import { Container, Heading, MonthLabel, TransactionsList } from './styles'
+import Transaction, { type ITransaction } from '@/components/Transaction'
 
 const groupTransactions = (
     transactions: ITransaction[],

@@ -1,8 +1,8 @@
 import { Link } from 'react-router'
-import { Button } from '@/components/Button'
 import { IconAvatar, IconLogo } from '@/components/Icons'
-import { TransparentButton } from '@/components/TransparentButton'
 import { Container, StyledHeader, List, ListItem } from './styles'
+import Button from '@/components/Button'
+import TransparentButton from '@/components/TransparentButton'
 
 const Header = () => {
     const onAskForLogout = () => {
