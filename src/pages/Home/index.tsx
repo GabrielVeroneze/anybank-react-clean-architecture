@@ -1,15 +1,8 @@
-import styled from 'styled-components'
+import { Main } from './styles'
 import Sidebar from '@/components/Sidebar'
 import Account from '@/components/Account'
 import TransactionForm from '@/components/TransactionForm'
 import Statement from '@/components/Statement'
-
-const Main = styled.main`
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 34px;
-`
 
 const transactions = [
     {

@@ -1,12 +1,5 @@
 import { Outlet } from 'react-router'
-import BaseCard from '@/components/Card'
-import styled from 'styled-components'
-
-const Card = styled(BaseCard)`
-    display: flex;
-    gap: 16px;
-    margin: 24px auto;
-`
+import { Card } from './styles'
 
 const AuthLayout = () => {
     return (
