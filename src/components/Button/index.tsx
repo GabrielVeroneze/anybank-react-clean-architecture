@@ -5,18 +5,18 @@ interface ButtonBaseProps {
     outline?: boolean
 }
 
-interface CustomLinkProps extends ButtonBaseProps, RouterLinkProps {
+interface LinkButtonProps extends ButtonBaseProps, RouterLinkProps {
     link: true
 }
 
-interface ButtonProps
+interface NativeButtonProps
     extends ButtonBaseProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
     link?: false
 }
 
-type Props = CustomLinkProps | ButtonProps
+type ButtonProps = LinkButtonProps | NativeButtonProps
 
-const Button = ({ outline, link, ...props }: Props) => {
+const Button = ({ outline, link, ...props }: ButtonProps) => {
     if (link) {
         return <Link $outline={outline} {...(props as RouterLinkProps)} />
     }

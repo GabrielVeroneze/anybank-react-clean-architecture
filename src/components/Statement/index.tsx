@@ -1,10 +1,11 @@
 import { Container, Heading, MonthLabel, TransactionsList } from './styles'
-import Transaction, { type ITransaction } from '@/components/Transaction'
+import type { TransactionData } from '@/types/TransactionData'
+import Transaction from '@/components/Transaction'
 
 const groupTransactions = (
-    transactions: ITransaction[],
-): Record<string, ITransaction[]> => {
-    return transactions.reduce<Record<string, ITransaction[]>>(
+    transactions: TransactionData[],
+): Record<string, TransactionData[]> => {
+    return transactions.reduce<Record<string, TransactionData[]>>(
         (acc, transaction) => {
             const monthName = transaction.date.toLocaleString('pt-BR', {
                 month: 'long',
@@ -24,7 +25,7 @@ const groupTransactions = (
 }
 
 interface StatementProps {
-    allTransactions: ITransaction[]
+    allTransactions: TransactionData[]
 }
 
 const Statement = ({ allTransactions }: StatementProps) => {
