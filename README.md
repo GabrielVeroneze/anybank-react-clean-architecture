@@ -1,67 +1,91 @@
-![Descricao da sua imagem](thumb.png)
+![Anybank App](thumb.png)
 
-# Anybank App
+# 🏦 Anybank App
 
-Aplicação de simulação bancária para gerenciamento de transações financeiras, focada no aprendizado de conceitos de autenticação e uso do Supabase como backend. A interface permite ao usuário consultar o extrato com histórico de transações, e realizar novas transações de forma prática e intuitiva.
+O **Anybank App** é uma **aplicação web de simulação bancária**, desenvolvida com **React e TypeScript**, focada no aprendizado de **autenticação**, **gerenciamento de transações financeiras** e **integração com Supabase** como backend.
 
-## 🔨 Funcionalidades do projeto
+O projeto permite consultar extratos, registrar transações e gerenciar usuários de forma segura, aplicando conceitos modernos de arquitetura e boas práticas no desenvolvimento frontend.
 
-A aplicação permite:
+---
 
-- Cadastrar novos usuários com autenticação via Supabase.
-- Cadastrar transações bancárias.
-- Visualizar o histórico de transações por tipo e valor.
+## 🚀 Sobre o projeto
 
-## ✔️ Técnicas e tecnologias utilizadas
+O **Anybank App** foi desenvolvido com o objetivo de simular um sistema bancário real, servindo como base prática para estudar **autenticação**, **estado global**, **arquitetura limpa** e **integração com serviços externos**.
 
-As principais tecnologias e técnicas aplicadas no projeto são:
+A aplicação organiza regras de negócio, acesso a dados e interface em camadas bem definidas, promovendo um código mais **modular**, **escalável** e **fácil de manter**.
 
-- **Supabase**: Backend para autenticação e armazenamento dos dados de usuários e transações.
-- **React com TypeScript**: Criação da interface de usuário e lógica do aplicativo.
-- **React Context API**: Gerenciamento de estados globais para autenticação.
-- **React Router**: Navegação entre as diferentes páginas da aplicação.
-- **Hooks personalizados**: Implementação de lógica reutilizável e controle de autenticação.
+---
 
-Este projeto aplica princípios de Arquitetura Limpa para promover uma estrutura modular, escalável e fácil de manter. Abaixo estão alguns dos conceitos utilizados para organizar a lógica de negócios, a manipulação de dados e a interface de forma coesa e adaptável:
+## 🧠 Principais recursos
 
-- Separação de camadas: organiza o projeto em camadas distintas para facilitar a manutenção e entendimento do fluxo.
-- Injeção de dependências: uso de interfaces para definir contratos entre camadas, permitindo trocas de tecnologias sem modificar a lógica central.
-- Use Cases: cada caso de uso encapsula uma ação específica, mantendo a lógica de negócios isolada e coesa.
-- Entidades e modelos de domínio: entidades como `IUser` e `ITransaction` representam dados centrais com regras específicas.
-- Camada de infraestrutura separada: acesso a dados e integração com o Supabase são isolados, preservando a lógica de negócio.
+- 🔐 Autenticação de usuários via **Supabase**
+- 💸 Cadastro de transações financeiras
+- 📄 Visualização de extrato bancário
+- 📊 Histórico de transações por tipo e valor
+- 🧩 Gerenciamento de estado de autenticação
+- 🏗️ Estrutura baseada em **Arquitetura Limpa**
+- 🔄 Lógica desacoplada por meio de **use cases** e **interfaces**
 
-![Descricao da sua imagem](clean-arch.png)
+---
 
-## 📁 Acesso ao projeto
+## 🛠️ Tecnologias utilizadas
 
-Você pode [acessar o código fonte do projeto inicial](https://github.com/alura-cursos/android-com-kotlin-personalizando-ui/tree/projeto-inicial) ou [baixá-lo](https://github.com/alura-cursos/android-com-kotlin-personalizando-ui/archive/refs/heads/projeto-inicial.zip).
+- **React**
+- **TypeScript**
+- **Vite**
+- **Supabase**
+- **React Context API**
+- **React Router**
+- **Hooks personalizados**
+- **Arquitetura Limpa (Clean Architecture)**
+- **Git & GitHub**
 
-## 🛠️ Abrir e rodar o projeto
+---
 
-![Descricao da sua imagem](screenshot.png)
+## 🧱 Arquitetura
 
-Para rodar o projeto localmente, siga os passos:
+O projeto segue princípios de **Clean Architecture**, aplicando conceitos como:
 
-1. Instale as dependências do projeto:
+- Separação de camadas (domain, application, infrastructure, UI)
+- Injeção de dependências
+- Use Cases para regras de negócio
+- Entidades de domínio (`User`, `Transaction`)
+- Camada de infraestrutura isolada para integração com o Supabase
 
-    ```bash
-    npm install
-    ```
+![Arquitetura Limpa](clean-arch.png)
 
-2. Configure o [Supabase](https://supabase.com/dashboard/projects) e crie um arquivo `.env.local` com as chaves de acesso:
+---
 
-    ```plaintext
-    SUPABASE_URL=your_supabase_url
-    SUPABASE_KEY=your_supabase_key
-    ```
+## 📁 Acesso ao código-base
 
-3. Execute o projeto:
-    ```bash
-    npm run dev
-    ```
+Você pode acessar ou baixar o repositório do projeto:
 
-Agora você pode acessar a aplicação em `http://localhost:5173/`.
+- [Código-fonte do projeto](https://github.com/GabrielVeroneze/anybank-react-clean-architecture/tree/main)
+- [Download em ZIP](https://github.com/GabrielVeroneze/anybank-react-clean-architecture/archive/refs/heads/main.zip)
 
-## 📚 Mais informações do curso
+---
 
-Interessado em aprender mais? Confira o curso completo para desenvolver esta aplicação e entender os conceitos de forma prática!
+## ⚙️ Instalação e uso
+
+Clone o repositório, instale as dependências e execute a aplicação:
+
+```bash
+# Clone o projeto
+git clone https://github.com/GabrielVeroneze/anybank-react-clean-architecture.git
+
+# Acesse a pasta
+cd anybank-react-clean-architecture
+
+# Instale as dependências
+npm install
+
+# Crie um arquivo .env.local e configure as variáveis do Supabase:
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_key
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
+# A aplicação estará disponível em:
+http://localhost:5173
+```
