@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
     background-color: #000;
@@ -27,9 +27,8 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
     font-size: 18px;
-    color: #CBCBCB;
+    color: #cbcbcb;
     display: flex;
     align-items: center;
     white-space: nowrap;
 `
-

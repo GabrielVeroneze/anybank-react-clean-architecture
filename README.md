@@ -44,21 +44,21 @@ Para rodar o projeto localmente, siga os passos:
 
 1. Instale as dependências do projeto:
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 2. Configure o [Supabase](https://supabase.com/dashboard/projects) e crie um arquivo `.env.local` com as chaves de acesso:
 
-   ```plaintext
-   SUPABASE_URL=your_supabase_url
-   SUPABASE_KEY=your_supabase_key
-   ```
+    ```plaintext
+    SUPABASE_URL=your_supabase_url
+    SUPABASE_KEY=your_supabase_key
+    ```
 
 3. Execute o projeto:
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm run dev
+    ```
 
 Agora você pode acessar a aplicação em `http://localhost:5173/`.
 

@@ -1,30 +1,30 @@
-import { useState } from "react";
-import { Button } from "../Button";
-import { Fieldset } from "../Fieldset";
-import { Figure, Form, FormActions, Heading, Image } from "../Form";
-import { FormLabel } from "../FormLabel";
-import { TextField } from "../TextField";
+import { useState } from 'react'
+import { Button } from '../Button'
+import { Fieldset } from '../Fieldset'
+import { Figure, Form, FormActions, Heading, Image } from '../Form'
+import { FormLabel } from '../FormLabel'
+import { TextField } from '../TextField'
 
 interface FormLoginProps {
     onLogin: () => void
 }
 
 export const FormLogin = ({ onLogin }: FormLoginProps) => {
-    const [credentials, setCredentials] = useState({ email: '', password: '' });
+    const [credentials, setCredentials] = useState({ email: '', password: '' })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setCredentials((prevCredentials) => ({
             ...prevCredentials,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const loginUser = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault();
-        console.log(credentials);
+        evt.preventDefault()
+        console.log(credentials)
         onLogin()
-    };
+    }
 
     return (
         <>
@@ -32,15 +32,11 @@ export const FormLogin = ({ onLogin }: FormLoginProps) => {
                 <Image src="/imgs/login.png" />
             </Figure>
             <div>
-                <Heading>
-                    Login
-                </Heading>
+                <Heading>Login</Heading>
                 <p>Preencha os dados do login.</p>
                 <Form onSubmit={loginUser}>
                     <Fieldset>
-                        <FormLabel>
-                            Email
-                        </FormLabel>
+                        <FormLabel>Email</FormLabel>
                         <TextField
                             name="email"
                             type="email"
@@ -51,9 +47,7 @@ export const FormLogin = ({ onLogin }: FormLoginProps) => {
                         />
                     </Fieldset>
                     <Fieldset>
-                        <FormLabel>
-                            Senha
-                        </FormLabel>
+                        <FormLabel>Senha</FormLabel>
                         <TextField
                             name="password"
                             type="password"
@@ -64,12 +58,10 @@ export const FormLogin = ({ onLogin }: FormLoginProps) => {
                         />
                     </Fieldset>
                     <FormActions>
-                        <Button type="submit">
-                            Efetuar login
-                        </Button>
+                        <Button type="submit">Efetuar login</Button>
                     </FormActions>
                 </Form>
             </div>
         </>
-    );
-};
+    )
+}

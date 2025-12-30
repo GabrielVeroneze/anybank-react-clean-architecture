@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.section`
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     border-radius: 8px;
     padding: 24px;
 `
@@ -27,4 +27,4 @@ export const MonthLabel = styled.h2`
     border-bottom: 1px solid;
     margin-top: 0;
     margin-bottom: 16px;
-`;
+`

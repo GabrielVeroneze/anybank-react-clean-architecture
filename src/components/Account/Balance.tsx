@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { IconEye } from "../Icons";
+import styled from 'styled-components'
+import { IconEye } from '../Icons'
 
 const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
-    minimumFractionDigits: 2
-  });
+    minimumFractionDigits: 2,
+})
 
 const StyledBalance = styled.div`
     h3 {
@@ -23,7 +23,7 @@ const StyledBalance = styled.div`
     }
     p {
         font-size: 16px;
-        margin : 0;
+        margin: 0;
         margin-bottom: 16px;
     }
     strong {
@@ -36,15 +36,15 @@ interface BalanceProps {
     value: number
 }
 
-export const Balance = ({ value } : BalanceProps) => {
-    return <StyledBalance>
-        <h3>
-            Saldo
-            <IconEye />
-        </h3>
-        <p>Conta Corrente</p>
-        <strong>
-            {formatter.format(value)}
-        </strong>
-    </StyledBalance>
+export const Balance = ({ value }: BalanceProps) => {
+    return (
+        <StyledBalance>
+            <h3>
+                Saldo
+                <IconEye />
+            </h3>
+            <p>Conta Corrente</p>
+            <strong>{formatter.format(value)}</strong>
+        </StyledBalance>
+    )
 }

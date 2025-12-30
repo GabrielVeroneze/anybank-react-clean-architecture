@@ -1,30 +1,34 @@
-import { useState } from "react";
-import { Button } from "../Button";
-import { Fieldset } from "../Fieldset";
-import { FormLabel } from "../FormLabel";
-import { TextField } from "../TextField";
-import { Figure, Form, FormActions, Heading, Image } from "../Form";
+import { useState } from 'react'
+import { Button } from '../Button'
+import { Fieldset } from '../Fieldset'
+import { FormLabel } from '../FormLabel'
+import { TextField } from '../TextField'
+import { Figure, Form, FormActions, Heading, Image } from '../Form'
 
 interface FormRegisterProps {
-    onRegister: (user: { name: string, email: string, password: string }) => void
+    onRegister: (user: {
+        name: string
+        email: string
+        password: string
+    }) => void
 }
 
 export const FormRegister = ({ onRegister }: FormRegisterProps) => {
-    const [user, setUser] = useState({ name: '', email: '', password: '' });
+    const [user, setUser] = useState({ name: '', email: '', password: '' })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setUser((prevUser) => ({
             ...prevUser,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const registerUser = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault();
-        console.log(user);
+        evt.preventDefault()
+        console.log(user)
         onRegister(user)
-    };
+    }
 
     return (
         <>
@@ -32,15 +36,15 @@ export const FormRegister = ({ onRegister }: FormRegisterProps) => {
                 <Image src="/imgs/register.png" />
             </Figure>
             <div>
-                <Heading>
-                    Cadastro
-                </Heading>
-                <p>Preencha os campos abaixo para<br/>criar sua conta corrente!</p>
+                <Heading>Cadastro</Heading>
+                <p>
+                    Preencha os campos abaixo para
+                    <br />
+                    criar sua conta corrente!
+                </p>
                 <Form onSubmit={registerUser}>
                     <Fieldset>
-                        <FormLabel>
-                            Nome
-                        </FormLabel>
+                        <FormLabel>Nome</FormLabel>
                         <TextField
                             name="name"
                             placeholder="Digite seu nome completo"
@@ -50,9 +54,7 @@ export const FormRegister = ({ onRegister }: FormRegisterProps) => {
                         />
                     </Fieldset>
                     <Fieldset>
-                        <FormLabel>
-                            Email
-                        </FormLabel>
+                        <FormLabel>Email</FormLabel>
                         <TextField
                             name="email"
                             type="email"
@@ -63,9 +65,7 @@ export const FormRegister = ({ onRegister }: FormRegisterProps) => {
                         />
                     </Fieldset>
                     <Fieldset>
-                        <FormLabel>
-                            Senha
-                        </FormLabel>
+                        <FormLabel>Senha</FormLabel>
                         <TextField
                             name="password"
                             type="password"
@@ -76,12 +76,10 @@ export const FormRegister = ({ onRegister }: FormRegisterProps) => {
                         />
                     </Fieldset>
                     <FormActions>
-                        <Button type="submit">
-                            Abrir conta
-                        </Button>
+                        <Button type="submit">Abrir conta</Button>
                     </FormActions>
                 </Form>
             </div>
         </>
-    );
-};
+    )
+}

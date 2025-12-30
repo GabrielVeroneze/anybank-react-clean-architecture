@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Aside = styled.aside`
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     border-radius: 8px;
     padding: 32px;
 `
@@ -16,13 +16,13 @@ export const List = styled.ul`
 `
 
 interface ListItemProps {
-    $active?: boolean;
+    $active?: boolean
 }
 
 export const ListItem = styled.li<ListItemProps>`
     text-align: center;
     border-bottom: 1px solid;
-    font-weight: ${props => props.$active ? '600' : '400'};
+    font-weight: ${(props) => (props.$active ? '600' : '400')};
     padding-bottom: 16px;
 `
 

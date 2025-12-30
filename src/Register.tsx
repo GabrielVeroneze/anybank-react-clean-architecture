@@ -1,13 +1,11 @@
-import { FormRegister } from "./components/FormRegister"
+import { FormRegister } from './components/FormRegister'
 
 const Register = () => {
-
     return (
-      <>
-        <FormRegister onRegister={() => console.log('register')}/>
-      </>
+        <>
+            <FormRegister onRegister={() => console.log('register')} />
+        </>
     )
-  }
-  
-  export default Register
-  
+}
+
+export default Register

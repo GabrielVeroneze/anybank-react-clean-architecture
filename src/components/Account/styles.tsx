@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Card = styled.section`
-    background: linear-gradient(180deg, #FFFFFF 0%, #6BD1FF 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #6bd1ff 100%);
     border-radius: 8px;
     width: 100%;
     padding: 40px 48px;

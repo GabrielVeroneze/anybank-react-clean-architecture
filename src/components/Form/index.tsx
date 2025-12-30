@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Form = styled.form`
     display: flex;
@@ -45,4 +45,3 @@ export const Heading = styled.h2`
     font-size: 20px;
     font-weight: 700;
 `
-
