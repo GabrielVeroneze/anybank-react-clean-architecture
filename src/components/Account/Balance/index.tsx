@@ -1,11 +1,6 @@
 import { IconEye } from '@/components/Icons'
+import { formatToBRL } from '@/utils/currencyFormatter'
 import styled from 'styled-components'
-
-const formatter = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-})
 
 const StyledBalance = styled.div`
     h3 {
@@ -44,7 +39,7 @@ const Balance = ({ value }: BalanceProps) => {
                 <IconEye />
             </h3>
             <p>Conta Corrente</p>
-            <strong>{formatter.format(value)}</strong>
+            <strong>{formatToBRL(value)}</strong>
         </StyledBalance>
     )
 }
