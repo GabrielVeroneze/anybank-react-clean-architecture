@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface ListItemProps {
+    $active?: boolean
+}
+
 export const Aside = styled.aside`
     background-color: #f5f5f5;
     border-radius: 8px;
@@ -14,10 +18,6 @@ export const List = styled.ul`
     flex-direction: column;
     gap: 16px;
 `
-
-interface ListItemProps {
-    $active?: boolean
-}
 
 export const ListItem = styled.li<ListItemProps>`
     text-align: center;
