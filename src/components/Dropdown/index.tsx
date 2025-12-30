@@ -6,6 +6,7 @@ const Dropdown = styled.select`
     font-size: 16px;
     border-radius: 16px;
     border: 2px solid #000;
+
     option[value=''] {
         color: #888;
     }
@@ -13,6 +14,7 @@ const Dropdown = styled.select`
     &:invalid {
         color: #888;
     }
+
     option:not(:first-child) {
         color: #000;
     }

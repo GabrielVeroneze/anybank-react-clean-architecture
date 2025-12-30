@@ -12,6 +12,7 @@ export const Form = styled.form`
     gap: 32px;
     align-items: baseline;
     width: 300px;
+
     fieldset {
         border: none;
         padding: 0;

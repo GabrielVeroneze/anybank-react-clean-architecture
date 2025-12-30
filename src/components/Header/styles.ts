@@ -11,6 +11,7 @@ export const Container = styled.section`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
     ul:last-child {
         justify-content: flex-end;
     }

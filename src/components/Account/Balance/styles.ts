@@ -14,11 +14,13 @@ export const StyledBalance = styled.div`
         margin: 0;
         margin-bottom: 16px;
     }
+
     p {
         font-size: 16px;
         margin: 0;
         margin-bottom: 16px;
     }
+
     strong {
         font-size: 31px;
         font-weight: 600;

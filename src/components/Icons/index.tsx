@@ -19,6 +19,7 @@ export const IconAvatar = () => {
         </svg>
     )
 }
+
 export const IconEye = () => {
     return (
         <svg
@@ -35,6 +36,7 @@ export const IconEye = () => {
         </svg>
     )
 }
+
 export const IconClose = () => {
     return (
         <svg
@@ -51,6 +53,7 @@ export const IconClose = () => {
         </svg>
     )
 }
+
 export const IconLogo = () => {
     return (
         <svg

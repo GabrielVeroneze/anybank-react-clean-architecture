@@ -6,6 +6,7 @@ const TextField = styled.input`
     font-size: 16px;
     border-radius: 16px;
     border: 2px solid #000;
+
     &::placeholder {
         color: #888;
     }
