@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const TextField = styled.input`
+const TextField = styled.input`
     width: 100%;
     padding: 11px 16px;
     font-size: 16px;
@@ -10,3 +10,5 @@ export const TextField = styled.input`
         color: #888;
     }
 `
+
+export default TextField

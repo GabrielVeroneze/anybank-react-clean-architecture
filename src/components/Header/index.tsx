@@ -4,7 +4,7 @@ import { IconAvatar, IconLogo } from '@/components/Icons'
 import { TransparentButton } from '@/components/TransparentButton'
 import { Container, StyledHeader, List, ListItem } from './styles'
 
-export const Header = () => {
+const Header = () => {
     const onAskForLogout = () => {
         console.log('logout')
     }
@@ -44,3 +44,5 @@ export const Header = () => {
         </StyledHeader>
     )
 }
+
+export default Header

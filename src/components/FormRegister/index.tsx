@@ -13,7 +13,7 @@ interface FormRegisterProps {
     }) => void
 }
 
-export const FormRegister = ({ onRegister }: FormRegisterProps) => {
+const FormRegister = ({ onRegister }: FormRegisterProps) => {
     const [user, setUser] = useState({ name: '', email: '', password: '' })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,3 +83,5 @@ export const FormRegister = ({ onRegister }: FormRegisterProps) => {
         </>
     )
 }
+
+export default FormRegister

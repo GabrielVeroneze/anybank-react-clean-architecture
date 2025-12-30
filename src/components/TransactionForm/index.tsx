@@ -6,7 +6,7 @@ import { FormLabel } from '@/components/FormLabel'
 import { Dropdown } from '@/components/Dropdown'
 import { Form, Heading, Wrapper } from './styles'
 
-export const TransactionForm = () => {
+const TransactionForm = () => {
     const [transactionType, setTransactionType] = useState('')
     const [transactionValue, setSetTransactionValue] = useState('')
 
@@ -56,3 +56,5 @@ export const TransactionForm = () => {
         </Card>
     )
 }
+
+export default TransactionForm

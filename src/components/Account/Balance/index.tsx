@@ -36,7 +36,7 @@ interface BalanceProps {
     value: number
 }
 
-export const Balance = ({ value }: BalanceProps) => {
+const Balance = ({ value }: BalanceProps) => {
     return (
         <StyledBalance>
             <h3>
@@ -48,3 +48,5 @@ export const Balance = ({ value }: BalanceProps) => {
         </StyledBalance>
     )
 }
+
+export default Balance

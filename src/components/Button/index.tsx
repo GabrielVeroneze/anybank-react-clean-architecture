@@ -45,7 +45,7 @@ const LinkElement = styled(RouterLink)<{ $outline?: boolean }>`
     text-decoration: none;
 `
 
-export const Button: React.FC<Props> = ({ outline, link, ...props }) => {
+const Button: React.FC<Props> = ({ outline, link, ...props }) => {
     if (link) {
         return (
             <LinkElement $outline={outline} {...(props as RouterLinkProps)} />
@@ -58,3 +58,5 @@ export const Button: React.FC<Props> = ({ outline, link, ...props }) => {
         />
     )
 }
+
+export default Button

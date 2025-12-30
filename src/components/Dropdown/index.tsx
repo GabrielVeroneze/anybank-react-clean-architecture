@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Dropdown = styled.select`
+const Dropdown = styled.select`
     width: 100%;
     padding: 10px 16px;
     font-size: 16px;
@@ -17,3 +17,5 @@ export const Dropdown = styled.select`
         color: #000;
     }
 `
+
+export default Dropdown

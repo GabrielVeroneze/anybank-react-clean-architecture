@@ -8,7 +8,7 @@ const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
 }
 
-export const Account = () => {
+const Account = () => {
     return (
         <Card>
             <GreetingWrapper>
@@ -23,3 +23,5 @@ export const Account = () => {
         </Card>
     )
 }
+
+export default Account

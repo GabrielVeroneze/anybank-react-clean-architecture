@@ -9,7 +9,7 @@ interface FormLoginProps {
     onLogin: () => void
 }
 
-export const FormLogin = ({ onLogin }: FormLoginProps) => {
+const FormLogin = ({ onLogin }: FormLoginProps) => {
     const [credentials, setCredentials] = useState({ email: '', password: '' })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,3 +65,5 @@ export const FormLogin = ({ onLogin }: FormLoginProps) => {
         </>
     )
 }
+
+export default FormLogin

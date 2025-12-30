@@ -1,6 +1,6 @@
 import { Aside, Link, List, ListItem } from './styles'
 
-export const Sidebar = () => {
+const Sidebar = () => {
     return (
         <Aside>
             <nav>
@@ -22,3 +22,5 @@ export const Sidebar = () => {
         </Aside>
     )
 }
+
+export default Sidebar

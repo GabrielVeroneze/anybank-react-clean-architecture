@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
+const Card = styled.div`
     background-color: #f2fbff;
     border-radius: 8px;
     min-height: 400px;
@@ -9,3 +9,5 @@ export const Card = styled.div`
     background-size: auto;
     padding: 32px;
 `
+
+export default Card

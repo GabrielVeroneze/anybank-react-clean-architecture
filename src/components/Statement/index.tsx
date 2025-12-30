@@ -27,7 +27,7 @@ interface StatementProps {
     allTransactions: ITransaction[]
 }
 
-export const Statement = ({ allTransactions }: StatementProps) => {
+const Statement = ({ allTransactions }: StatementProps) => {
     const grouped = groupTransactions(allTransactions)
 
     return (
@@ -49,3 +49,5 @@ export const Statement = ({ allTransactions }: StatementProps) => {
         </Container>
     )
 }
+
+export default Statement

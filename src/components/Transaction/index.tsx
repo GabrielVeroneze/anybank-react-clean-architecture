@@ -31,7 +31,7 @@ interface TransactionProps {
     transaction: ITransaction
 }
 
-export const Transaction = ({ transaction }: TransactionProps) => {
+const Transaction = ({ transaction }: TransactionProps) => {
     const { value, type, date } = transaction
     const formattedDate = formatDate(date)
     const formattedValue = currencyFormatter.format(value)
@@ -46,3 +46,5 @@ export const Transaction = ({ transaction }: TransactionProps) => {
         </TransactionWrapper>
     )
 }
+
+export default Transaction
