@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components'
-import React from 'react'
 import {
     Link as RouterLink,
-    LinkProps as RouterLinkProps,
-} from 'react-router-dom' // Importando o Link do React Router
+    type LinkProps as RouterLinkProps,
+} from 'react-router'
+import styled, { css } from 'styled-components'
 
 interface ButtonBaseProps {
     outline?: boolean

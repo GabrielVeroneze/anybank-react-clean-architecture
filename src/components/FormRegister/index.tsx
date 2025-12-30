@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Button } from '../Button'
-import { Fieldset } from '../Fieldset'
-import { FormLabel } from '../FormLabel'
-import { TextField } from '../TextField'
-import { Figure, Form, FormActions, Heading, Image } from '../Form'
+import { Button } from '@/components/Button'
+import { Fieldset } from '@/components/Fieldset'
+import { FormLabel } from '@/components/FormLabel'
+import { TextField } from '@/components/TextField'
+import { Figure, Form, FormActions, Heading, Image } from '@/components/Form'
 
 interface FormRegisterProps {
     onRegister: (user: {
