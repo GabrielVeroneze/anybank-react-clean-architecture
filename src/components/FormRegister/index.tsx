@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { CreateUser } from '@/domain/useCases/CreateUser'
+import { UserSupabaseRepository } from '@/infrastructure/supabase/UserSupabaseRepository'
 import Button from '@/components/Button'
 import Fieldset from '@/components/Fieldset'
 import Form from '@/components/Form'
@@ -9,15 +12,10 @@ import Image from '@/components/Form/Image'
 import FormLabel from '@/components/FormLabel'
 import TextField from '@/components/TextField'
 
-interface FormRegisterProps {
-    onRegister: (user: {
-        name: string
-        email: string
-        password: string
-    }) => void
-}
+const userSupabaseRepository = new UserSupabaseRepository()
+const createUser = new CreateUser(userSupabaseRepository)
 
-const FormRegister = ({ onRegister }: FormRegisterProps) => {
+const FormRegister = () => {
     const [user, setUser] = useState({ name: '', email: '', password: '' })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,10 +26,18 @@ const FormRegister = ({ onRegister }: FormRegisterProps) => {
         }))
     }
 
-    const registerUser = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault()
-        console.log(user)
-        onRegister(user)
+    const registerUser = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        try {
+            await createUser.execute(user)
+
+            toast.success('Usuário registrado com sucesso!')
+            setUser({ name: '', email: '', password: '' })
+        } catch (error) {
+            console.log('Falha ao cadastrar usuário', error)
+            toast.error('Falha ao cadastrar usuário')
+        }
     }
 
     return (
