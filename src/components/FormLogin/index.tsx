@@ -1,4 +1,9 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import { login } from '@/app/store/auth/authThunks'
+import type { AppDispatch } from '@/app/store'
+import type { LoginCredentials } from '@/types/LoginCredentials'
 import Button from '@/components/Button'
 import Fieldset from '@/components/Fieldset'
 import Form from '@/components/Form'
@@ -9,12 +14,12 @@ import Image from '@/components/Form/Image'
 import FormLabel from '@/components/FormLabel'
 import TextField from '@/components/TextField'
 
-interface FormLoginProps {
-    onLogin: () => void
-}
-
-const FormLogin = ({ onLogin }: FormLoginProps) => {
-    const [credentials, setCredentials] = useState({ email: '', password: '' })
+const FormLogin = () => {
+    const dispatch = useDispatch<AppDispatch>()
+    const [credentials, setCredentials] = useState<LoginCredentials>({
+        email: '',
+        password: '',
+    })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -24,10 +29,17 @@ const FormLogin = ({ onLogin }: FormLoginProps) => {
         }))
     }
 
-    const loginUser = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault()
-        console.log(credentials)
-        onLogin()
+    const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        try {
+            await dispatch(login(credentials))
+
+            toast.success('Boas-vindas ao AnyBank!')
+        } catch (error) {
+            console.log('Falha ao efetuar login', error)
+            toast.error('Falha ao efetuar login, confirme seu e-mail e senha.')
+        }
     }
 
     return (
