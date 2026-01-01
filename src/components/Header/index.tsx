@@ -1,18 +1,13 @@
 import { Link } from 'react-router'
-import { useDispatch } from 'react-redux'
-import { logout } from '@/app/store/auth/authThunks'
-import { IconAvatar, IconLogo } from '@/components/Icons'
+import { useSelector } from 'react-redux'
+import { IconLogo } from '@/components/Icons'
 import { Container, StyledHeader, List, ListItem } from './styles'
-import type { AppDispatch } from '@/app/store'
-import Button from '@/components/Button'
-import TransparentButton from '@/components/TransparentButton'
+import type { RootState } from '@/app/store'
+import AuthenticatedActionList from './AuthenticatedActionList'
+import UnauthenticatedActionList from './UnauthenticatedActionList'
 
 const Header = () => {
-    const dispatch = useDispatch<AppDispatch>()
-
-    const onAskForLogout = () => {
-        dispatch(logout())
-    }
+    const session = useSelector((state: RootState) => state.auth.session)
 
     return (
         <StyledHeader>
@@ -24,27 +19,11 @@ const Header = () => {
                         </Link>
                     </ListItem>
                 </List>
-                <List>
-                    <ListItem>
-                        <Button link to="/auth/register">
-                            Abrir conta
-                        </Button>
-                    </ListItem>
-                    <ListItem>
-                        <Button outline link to="/auth/login">
-                            Login
-                        </Button>
-                    </ListItem>
-                    <ListItem>Joana da Silva Oliveira</ListItem>
-                    <ListItem>
-                        <IconAvatar />
-                    </ListItem>
-                    <ListItem>
-                        <TransparentButton onClick={onAskForLogout}>
-                            Logout
-                        </TransparentButton>
-                    </ListItem>
-                </List>
+                {session ? (
+                    <AuthenticatedActionList />
+                ) : (
+                    <UnauthenticatedActionList />
+                )}
             </Container>
         </StyledHeader>
     )
