@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { initAuth } from '@/app/store/auth/authThunks'
 import { Container } from './styles'
 import type { AppDispatch } from '@/app/store'
-import Header from '@/components/Header'
+import Header from '@/presentation/Header'
 
 const RootLayout = () => {
     const dispatch = useDispatch<AppDispatch>()

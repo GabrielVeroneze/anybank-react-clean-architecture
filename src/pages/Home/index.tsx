@@ -1,8 +1,8 @@
 import { Main } from './styles'
-import Sidebar from '@/components/Sidebar'
-import Account from '@/components/Account'
-import TransactionForm from '@/components/TransactionForm'
-import Statement from '@/components/Statement'
+import Sidebar from '@/presentation/Sidebar'
+import Account from '@/presentation/Account'
+import TransactionForm from '@/presentation/TransactionForm'
+import Statement from '@/presentation/Statement'
 
 const transactions = [
     {
