@@ -1,6 +1,6 @@
 import { formatDatePtBR } from '@/utils/formatDate'
 import { Card, DateWrapper, GreetingWrapper, Heading } from './styles'
-import Balance from './Balance'
+import Balance from '@/presentation/Balance'
 
 const Account = () => {
     return (

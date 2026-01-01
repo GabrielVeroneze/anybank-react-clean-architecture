@@ -1,6 +1,6 @@
 import { Container, Heading, MonthLabel, TransactionsList } from './styles'
 import type { TransactionData } from '@/types/TransactionData'
-import Transaction from '@/components/Transaction'
+import Transaction from '@/presentation/Transaction'
 
 const groupTransactions = (
     transactions: TransactionData[],
