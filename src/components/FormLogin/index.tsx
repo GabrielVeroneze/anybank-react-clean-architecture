@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { login } from '@/app/store/auth/authThunks'
@@ -16,6 +17,8 @@ import TextField from '@/components/TextField'
 
 const FormLogin = () => {
     const dispatch = useDispatch<AppDispatch>()
+    const navigate = useNavigate()
+
     const [credentials, setCredentials] = useState<LoginCredentials>({
         email: '',
         password: '',
@@ -36,6 +39,7 @@ const FormLogin = () => {
             await dispatch(login(credentials))
 
             toast.success('Boas-vindas ao AnyBank!')
+            navigate('/')
         } catch (error) {
             console.log('Falha ao efetuar login', error)
             toast.error('Falha ao efetuar login, confirme seu e-mail e senha.')
