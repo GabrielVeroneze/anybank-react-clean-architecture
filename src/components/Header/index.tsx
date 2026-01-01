@@ -1,12 +1,17 @@
 import { Link } from 'react-router'
+import { useDispatch } from 'react-redux'
+import { logout } from '@/app/store/auth/authThunks'
 import { IconAvatar, IconLogo } from '@/components/Icons'
 import { Container, StyledHeader, List, ListItem } from './styles'
+import type { AppDispatch } from '@/app/store'
 import Button from '@/components/Button'
 import TransparentButton from '@/components/TransparentButton'
 
 const Header = () => {
+    const dispatch = useDispatch<AppDispatch>()
+
     const onAskForLogout = () => {
-        console.log('logout')
+        dispatch(logout())
     }
 
     return (
