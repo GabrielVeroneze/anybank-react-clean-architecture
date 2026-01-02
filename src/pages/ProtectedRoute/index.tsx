@@ -4,14 +4,20 @@ import { useSelector } from 'react-redux'
 import type { RootState } from '@/app/store'
 
 const ProtectedRoute = () => {
-    const session = useSelector((state: RootState) => state.auth.session)
+    const { session, loading } = useSelector((state: RootState) => state.auth)
     const navigate = useNavigate()
 
     useEffect(() => {
+        if (loading) return
+
         if (!session) {
             navigate('/auth/login')
         }
-    }, [session, navigate])
+    }, [session, loading, navigate])
+
+    if (loading) {
+        return null
+    }
 
     return <Outlet />
 }
