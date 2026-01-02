@@ -1,14 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { ListTransactionType } from '@/domain/useCases/ListTransactionType'
+import { TransactionTypeSupabaseRepository } from '@/infrastructure/supabase/TransactionTypeSupabaseRepository'
 import { Form, Heading, Wrapper } from './styles'
+import type { TransactionType } from '@/domain/entities/TransactionType'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
 import TextField from '@/components/TextField'
 import FormLabel from '@/components/FormLabel'
 import Dropdown from '@/components/Dropdown'
 
+const transactionTypeRepository = new TransactionTypeSupabaseRepository()
+const listTransactionTypes = new ListTransactionType(transactionTypeRepository)
+
 const TransactionForm = () => {
     const [transactionType, setTransactionType] = useState('')
-    const [transactionValue, setSetTransactionValue] = useState('')
+    const [transactionValue, setTransactionValue] = useState('')
+    const [transactionTypes, setTransactionTypes] = useState<TransactionType[]>(
+        [],
+    )
+
+    useEffect(() => {
+        const fetchTransactionTypes = async () => {
+            const data = await listTransactionTypes.execute()
+
+            setTransactionTypes(data)
+        }
+
+        fetchTransactionTypes()
+    }, [])
 
     const createTransacion = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault()
@@ -35,7 +54,11 @@ const TransactionForm = () => {
                             <option value="" disabled hidden>
                                 Selecione o tipo de transação
                             </option>
-                            <option value="saque">Saque</option>
+                            {transactionTypes.map((type) => (
+                                <option key={type.id} value={type.id}>
+                                    {type.display}
+                                </option>
+                            ))}
                         </Dropdown>
                     </fieldset>
                     <fieldset>
@@ -45,7 +68,7 @@ const TransactionForm = () => {
                             type="number"
                             value={transactionValue}
                             onChange={(evt) =>
-                                setSetTransactionValue(evt.target.value)
+                                setTransactionValue(evt.target.value)
                             }
                             required
                         />
