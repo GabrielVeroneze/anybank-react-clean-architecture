@@ -1,31 +1,10 @@
+import { groupTransactions } from '@/utils/groupTransactions'
 import { Container, Heading, MonthLabel, TransactionsList } from './styles'
-import type { TransactionData } from '@/types/TransactionData'
-import Transaction from '@/presentation/Transaction'
-
-const groupTransactions = (
-    transactions: TransactionData[],
-): Record<string, TransactionData[]> => {
-    return transactions.reduce<Record<string, TransactionData[]>>(
-        (acc, transaction) => {
-            const monthName = transaction.date.toLocaleString('pt-BR', {
-                month: 'long',
-            })
-            const year = transaction.date.getFullYear()
-            const key = `${monthName} ${year}`
-
-            if (!acc[key]) {
-                acc[key] = []
-            }
-
-            acc[key].push(transaction)
-            return acc
-        },
-        {},
-    )
-}
+import type { Transaction } from '@/domain/entities/Transaction'
+import TransactionItem from '@/presentation/TransactionItem'
 
 interface StatementProps {
-    allTransactions: TransactionData[]
+    allTransactions: Transaction[]
 }
 
 const Statement = ({ allTransactions }: StatementProps) => {
@@ -39,7 +18,7 @@ const Statement = ({ allTransactions }: StatementProps) => {
                     <div key={monthYear}>
                         <MonthLabel>{monthYear}</MonthLabel>
                         {transactions.map((transaction) => (
-                            <Transaction
+                            <TransactionItem
                                 key={transaction.id}
                                 transaction={transaction}
                             />
