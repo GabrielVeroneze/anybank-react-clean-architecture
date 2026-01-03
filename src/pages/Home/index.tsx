@@ -1,37 +1,29 @@
+import { useEffect, useState } from 'react'
+import { TransactionSupabaseRepository } from '@/infrastructure/supabase/TransactionSupabaseRepository'
+import { ListAllTransactions } from '@/domain/useCases/ListAllTransactions'
 import { Main } from './styles'
+import type { Transaction } from '@/domain/entities/Transaction'
 import Sidebar from '@/presentation/Sidebar'
 import Account from '@/presentation/Account'
 import TransactionForm from '@/presentation/TransactionForm'
 import Statement from '@/presentation/Statement'
 
-const transactions = [
-    {
-        id: 1,
-        value: 150,
-        type: 'Depósito',
-        date: new Date(2022, 9, 18),
-    },
-    {
-        id: 2,
-        value: 200,
-        type: 'Saque',
-        date: new Date(2022, 8, 19),
-    },
-    {
-        id: 3,
-        value: 300,
-        type: 'Transferência',
-        date: new Date(2022, 8, 20),
-    },
-    {
-        id: 4,
-        value: 500,
-        type: 'Depósito',
-        date: new Date(2022, 7, 21),
-    },
-]
+const transactionRepository = new TransactionSupabaseRepository()
+const listTransactions = new ListAllTransactions(transactionRepository)
 
 const Home = () => {
+    const [transactions, setTransactions] = useState<Transaction[]>([])
+
+    useEffect(() => {
+        const fetchTransactions = async () => {
+            const data = await listTransactions.execute()
+
+            setTransactions(data)
+        }
+
+        fetchTransactions()
+    }, [])
+
     return (
         <>
             <Sidebar />
