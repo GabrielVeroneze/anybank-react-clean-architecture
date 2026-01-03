@@ -7,13 +7,13 @@ import {
     TransactionType,
     TransactionWrapper,
 } from './styles'
-import type { TransactionData } from '@/types/TransactionData'
+import type { Transaction } from '@/domain/entities/Transaction'
 
-interface TransactionProps {
-    transaction: TransactionData
+interface TransactionItemProps {
+    transaction: Transaction
 }
 
-const Transaction = ({ transaction }: TransactionProps) => {
+const TransactionItem = ({ transaction }: TransactionItemProps) => {
     const { value, type, date } = transaction
     const formattedDate = formatDatePtBR(date)
     const formattedValue = formatToBRL(value)
@@ -21,7 +21,7 @@ const Transaction = ({ transaction }: TransactionProps) => {
     return (
         <TransactionWrapper>
             <TransactionInfo>
-                <TransactionType>{type}</TransactionType>
+                <TransactionType>{type.display}</TransactionType>
                 <TransactionDate>{formattedDate}</TransactionDate>
             </TransactionInfo>
             <TransactionAmount>{formattedValue}</TransactionAmount>
@@ -29,4 +29,4 @@ const Transaction = ({ transaction }: TransactionProps) => {
     )
 }
 
-export default Transaction
+export default TransactionItem
