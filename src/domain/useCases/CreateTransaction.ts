@@ -8,6 +8,6 @@ export class CreateTransaction {
     }
 
     async execute(value: number, typeId: number, userId: string) {
-        this.transactionRepository.create(value, typeId, userId)
+        return this.transactionRepository.create(value, typeId, userId)
     }
 }
