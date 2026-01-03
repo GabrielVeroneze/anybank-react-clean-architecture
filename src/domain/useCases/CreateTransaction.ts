@@ -7,7 +7,7 @@ export class CreateTransaction {
         this.transactionRepository = transactionRepository
     }
 
-    execute(value: number, typeId: number, userId: string) {
+    async execute(value: number, typeId: number, userId: string) {
         this.transactionRepository.create(value, typeId, userId)
     }
 }
