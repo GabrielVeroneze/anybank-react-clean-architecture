@@ -1,8 +1,16 @@
+import { calculateBalance } from '@/utils/calculateBalance'
 import { formatDatePtBR } from '@/utils/formatDate'
 import { Card, DateWrapper, GreetingWrapper, Heading } from './styles'
+import type { Transaction } from '@/domain/entities/Transaction'
 import Balance from '@/presentation/Balance'
 
-const Account = () => {
+interface AccountProps {
+    transactions: Transaction[]
+}
+
+const Account = ({ transactions }: AccountProps) => {
+    const saldo = calculateBalance(transactions)
+
     return (
         <Card>
             <GreetingWrapper>
@@ -10,7 +18,7 @@ const Account = () => {
                 <Heading>Olá, Joana! :)</Heading>
             </GreetingWrapper>
             <div>
-                <Balance value={2500} />
+                <Balance value={saldo} />
             </div>
         </Card>
     )
