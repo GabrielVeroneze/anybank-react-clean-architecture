@@ -1,4 +1,5 @@
 import type { TransactionRepository } from '@/domain/repositories/TransactionRepository'
+import type { Transaction } from '@/domain/entities/Transaction'
 import { supabase } from './config'
 
 export class TransactionSupabaseRepository implements TransactionRepository {
@@ -13,5 +14,25 @@ export class TransactionSupabaseRepository implements TransactionRepository {
         if (error) {
             throw new Error(error.message)
         }
+    }
+
+    async listAll() {
+        const { data, error } = await supabase.from('transaction').select(`
+            *,
+            transaction_type (id, display)
+        `)
+
+        if (error) {
+            throw new Error(error.message)
+        }
+
+        const result: Transaction[] = data.map((row) => ({
+            id: row.id,
+            value: row.value,
+            type: row.transaction_type,
+            date: new Date(row.created_at),
+        }))
+
+        return result
     }
 }
