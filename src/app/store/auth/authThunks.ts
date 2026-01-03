@@ -8,11 +8,9 @@ export const initAuth = createAsyncThunk<void, void>(
     async (_arg, { dispatch }) => {
         const { data } = await supabase.auth.getSession()
         dispatch(setSession(data.session))
-        console.log('getSession', data.session)
 
         supabase.auth.onAuthStateChange((_event, session) => {
             dispatch(setSession(session))
-            console.log('onAuthStateChange', session)
         })
     },
 )
