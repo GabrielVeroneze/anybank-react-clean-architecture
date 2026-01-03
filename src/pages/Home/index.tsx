@@ -24,12 +24,16 @@ const Home = () => {
         fetchTransactions()
     }, [])
 
+    const onRegisterTransacion = (newTransaction: Transaction) => {
+        setTransactions([...transactions, newTransaction])
+    }
+
     return (
         <>
             <Sidebar />
             <Main>
-                <Account />
-                <TransactionForm />
+                <Account transactions={transactions} />
+                <TransactionForm onRegister={onRegisterTransacion} />
             </Main>
             <div>
                 <Statement allTransactions={transactions} />
