@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import { useSelector } from 'react-redux'
 import { ListTransactionType } from '@/domain/useCases/ListTransactionType'
+import { CreateTransaction } from '@/domain/useCases/CreateTransaction'
 import { TransactionTypeSupabaseRepository } from '@/infrastructure/supabase/TransactionTypeSupabaseRepository'
+import { TransactionSupabaseRepository } from '@/infrastructure/supabase/TransactionSupabaseRepository'
 import { Form, Heading, Wrapper } from './styles'
 import type { TransactionType } from '@/domain/entities/TransactionType'
+import type { RootState } from '@/app/store'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
 import TextField from '@/components/TextField'
@@ -12,7 +17,12 @@ import Dropdown from '@/components/Dropdown'
 const transactionTypeRepository = new TransactionTypeSupabaseRepository()
 const listTransactionTypes = new ListTransactionType(transactionTypeRepository)
 
+const transactionRepository = new TransactionSupabaseRepository()
+const createTransaction = new CreateTransaction(transactionRepository)
+
 const TransactionForm = () => {
+    const session = useSelector((state: RootState) => state.auth.session)
+
     const [transactionType, setTransactionType] = useState('')
     const [transactionValue, setTransactionValue] = useState('')
     const [transactionTypes, setTransactionTypes] = useState<TransactionType[]>(
@@ -29,18 +39,32 @@ const TransactionForm = () => {
         fetchTransactionTypes()
     }, [])
 
-    const createTransacion = (evt: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault()
-        console.log({
-            transactionType,
-            transactionValue,
-        })
+
+        if (!session) return
+
+        try {
+            await createTransaction.execute(
+                Number(transactionValue),
+                Number(transactionType),
+                session.user.id,
+            )
+
+            setTransactionType('')
+            setTransactionValue('')
+
+            toast.success('Transação criada com sucesso!')
+        } catch (error) {
+            console.log('Falha ao criar transação', error)
+            toast.error('Não foi possível criar a transação.')
+        }
     }
 
     return (
         <Card>
             <Wrapper>
-                <Form onSubmit={createTransacion}>
+                <Form onSubmit={handleFormSubmit}>
                     <Heading>Nova transação</Heading>
                     <fieldset>
                         <FormLabel>Transação</FormLabel>
