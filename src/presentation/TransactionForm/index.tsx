@@ -7,6 +7,7 @@ import { TransactionTypeSupabaseRepository } from '@/infrastructure/supabase/Tra
 import { TransactionSupabaseRepository } from '@/infrastructure/supabase/TransactionSupabaseRepository'
 import { Form, Heading, Wrapper } from './styles'
 import type { TransactionType } from '@/domain/entities/TransactionType'
+import type { Transaction } from '@/domain/entities/Transaction'
 import type { RootState } from '@/app/store'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
@@ -20,7 +21,11 @@ const listTransactionTypes = new ListTransactionType(transactionTypeRepository)
 const transactionRepository = new TransactionSupabaseRepository()
 const createTransaction = new CreateTransaction(transactionRepository)
 
-const TransactionForm = () => {
+interface TransactionFormProps {
+    onRegister: (newTransaction: Transaction) => void
+}
+
+const TransactionForm = ({ onRegister }: TransactionFormProps) => {
     const session = useSelector((state: RootState) => state.auth.session)
 
     const [transactionType, setTransactionType] = useState('')
@@ -45,11 +50,13 @@ const TransactionForm = () => {
         if (!session) return
 
         try {
-            await createTransaction.execute(
+            const transaction = await createTransaction.execute(
                 Number(transactionValue),
                 Number(transactionType),
                 session.user.id,
             )
+
+            onRegister(transaction)
 
             setTransactionType('')
             setTransactionValue('')
